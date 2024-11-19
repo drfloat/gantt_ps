@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template xml:space="preserve">
+    <t t-name="gantt_ps_view.GanttPSView" owl="1">
+        <div t-ref="root" t-att-class="props.className">
+            <Layout className="model.useSampleModel ? 'o_view_sample_data' : ''"
+                    display="props.display">
+                <t t-set-slot = "control-panel-additional-actions">
+                    <CogMenu/>
+                </t>
+                <t t-set-slot="layout-buttons"/>
+                <t t-set-slot="layout-actions">
+                    <SearchBar t-if="searchBarToggler.state.showSearchBar"/>
+                </t>
+                <t t-set-slot="control-panel-navigation-additional">
+                    <t t-component = "searchBarToggler.component" t-props="searchBarToggler.props"/>
+                </t>
+                <t t-component="props.Renderer" t-props="renderProps" list="model.root"/>
+            </Layout>
+        </div>
+    </t>
+</template>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+   <record id="simple_gantt_ps_view_gantt_ps" model="ir.ui.view">
+       <field name="name">simple.gantt_ps.view.gantt</field>
+       <field name="model">gantt.ps</field>
+       <field name="arch" type="xml">
+           <gantt date_start="start_date" date_stop="end_date"
+                  default_group_by="name" string="Customers">
+               <field name="name"/>
+               <field name="start_date"/>
+               <field name="end_date"/>
+           </gantt>
+       </field>
+   </record>
+   <record id="action_view_simple_gantt_ps" model="ir.actions.act_window">
+       <field name="name">gantt_ps Partners</field>
+       <field name="type">ir.actions.act_window</field>
+       <field name="res_model">gantt.ps</field>
+       <field name="view_mode">tree,form,gantt</field>
+   </record>
+   <menuitem id="menu_view_simple_gantt_ps"
+             name="Simple gantt_ps"
+             action="action_view_simple_gantt_ps"/>
+</odoo>

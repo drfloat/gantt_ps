@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_my_gantt_ps" model="ir.ui.view">
+        <field name="name">My gantt View</field>
+        <field name="model">gantt.ps</field>
+        <field name="arch" type="xml">
+            <gantt_ps string="My Gantt View">
+                <!-- Add your columns here -->
+            </gantt_ps>
+        </field>
+    </record>
+    <record id="gantt_ps.record_id" model="ir.actions.act_window">
+        <field name="name">My Gantt Action</field>
+        <field name="res_model">gantt.ps</field> <!-- Add this line with the appropriate model -->
+        <field name="view_mode">gantt_ps,form,kanban,tree</field>
+    </record>
+
+
+
+    <record id="record_id_view_gantt_ps" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">gantt_ps</field>
+            <field name="view_id" ref="gantt_ps.view_my_gantt_ps"/>
+            <field name="act_window_id" ref="gantt_ps.record_id"/>
+    </record>
+</odoo>
